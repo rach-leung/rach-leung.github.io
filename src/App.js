@@ -1,6 +1,6 @@
 import './App.css';
 import StarfieldBackground from './components/StarfieldBackground';
-import SkyBackground from './components/SkyBackground';
+// import SkyBackground from './components/SkyBackground';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import About from './components/About';
