@@ -55,6 +55,7 @@ const Contact = () => {
             );
 
             setIsSent(true);
+            form.reset();
             setTimeout(() => setIsSent(false), 5000);
         } catch (error) {
             console.error('Failed to send message:', error);
