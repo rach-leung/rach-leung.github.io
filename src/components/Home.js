@@ -16,6 +16,23 @@ const GradientHeading = ({ children, size = '3rem' }) => (
     </h1>
 );
 
+const SocialLinks = () => (
+  <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
+    <a href="https://github.com/rach-leung" target="_blank" rel="noopener noreferrer">
+      <img src="/icons/github.svg" alt="GitHub" style={{ width: '40px', height: '40px' }} />
+    </a>
+    <a href="https://www.linkedin.com/in/leung-rachel/" target="_blank" rel="noopener noreferrer">
+      <img src="/icons/linkedin.svg" alt="LinkedIn" style={{ width: '40px', height: '40px' }} />
+    </a>
+    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+      <img src="/icons/resume.svg" alt="Resume" style={{ width: '40px', height: '40px' }} />
+    </a>
+    <a href="mailto:rachelswleung@gmail.com">
+      <img src="/icons/mail.svg" alt="Email" style={{ width: '40px', height: '40px' }} />
+    </a>
+  </div>
+);
+
 const Home = () => (
   <section
         id="home"
@@ -34,6 +51,7 @@ const Home = () => (
         <h3 style={{marginBottom: '0', fontSize: '3rem'}}>Hi! I'm</h3>
         <GradientHeading size='6rem'>Rachel Leung</GradientHeading>
         <p style={{ fontSize: '2rem' }}>Welcome to my space!</p>
+        <SocialLinks />
       </div>
       <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
         <Canvas style={{ width: '100%', height: '500px' }} camera={{ position: [0, 0, 8], fov: 75 }}>

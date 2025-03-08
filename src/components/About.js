@@ -24,7 +24,7 @@ const About = () =>
                     I'm passionate about web development, design, and user experiences. 
                 </p>
                 <p>
-                    <b>Languages:</b> Python, C, Java, JavaScript, HTML/CSS, Typescript
+                    <b>Languages:</b> Python, C, Java, JavaScript, HTML/CSS, Typescript, SQL
                 </p>
                 <p>
                     <b>Frameworks:</b> React, NodeJS, Flask
