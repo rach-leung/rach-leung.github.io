@@ -1,10 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 
 const GradientHeading = ({ children, size = '3rem' }) => (
     <h1 style={{
         marginTop: '0',
+        marginBottom: '40px',
         background: 'linear-gradient(270deg,rgba(141, 255, 194, 0.85),rgba(132, 255, 220, 0.82),#46f0ff,rgb(113, 139, 255),rgba(213, 123, 255, 0.83),rgb(255, 138, 237),rgb(255, 182, 113))',
         backgroundSize: '150% 150%',
         WebkitBackgroundClip: 'text',
@@ -15,6 +16,45 @@ const GradientHeading = ({ children, size = '3rem' }) => (
         {children}
     </h1>
 );
+
+const TypingEffect = ({ words, typingSpeed = 150, deleteSpeed = 50, pause = 1000 }) => {
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const currentWord = words[currentWordIndex];
+
+      if (isDeleting) {
+        setDisplayedText(currentWord.substring(0, displayedText.length - 1));
+        if (displayedText === '') {
+          setIsDeleting(false);
+          setCurrentWordIndex((currentWordIndex + 1) % words.length);
+        }
+      } else {
+        setDisplayedText(currentWord.substring(0, displayedText.length + 1));
+        if (displayedText === currentWord) {
+          setTimeout(() => setIsDeleting(true), pause);
+        }
+      }
+    };
+
+    const speed = isDeleting ? deleteSpeed : typingSpeed;
+    timeoutRef.current = setTimeout(handleTyping, speed);
+
+    return () => clearTimeout(timeoutRef.current);
+  }, [displayedText, isDeleting, currentWordIndex, words, typingSpeed, deleteSpeed, pause]);
+
+  return (
+    <h2 style={{ fontSize: '2.5rem', height: '3rem', display: 'inline' }}>
+      {displayedText}
+      <span className="cursor">|</span>
+    </h2>
+  );
+};
+
 
 const socialLinks = [
   { href: 'https://github.com/rach-leung', src: '/icons/github.svg', alt: 'GitHub', color: '#9f9f9f', size: '53px' },
@@ -79,7 +119,8 @@ const Home = () => (
     >
       <div style={{ flex: 2, textAlign: 'left', fontSize: '3rem', marginTop: '60px' }}>
         <h3 style={{marginBottom: '0', fontSize: '3rem'}}>Hi! I'm</h3>
-        <GradientHeading size='6rem'>Rachel Leung</GradientHeading>
+        <GradientHeading size='6rem' style={{ marginBottom: '0px !important' }}>Rachel Leung</GradientHeading>
+        <TypingEffect words={['Student', 'Developer', 'Designer']} />
         <p style={{ fontSize: '2rem' }}>Welcome to my space!</p>
         <SocialLinks />
       </div>
