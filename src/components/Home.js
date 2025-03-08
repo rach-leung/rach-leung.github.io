@@ -16,20 +16,50 @@ const GradientHeading = ({ children, size = '3rem' }) => (
     </h1>
 );
 
+const socialLinks = [
+  { href: 'https://github.com/rach-leung', src: '/icons/github.svg', alt: 'GitHub', color: '#9f9f9f', size: '53px' },
+  { href: 'https://www.linkedin.com/in/leung-rachel/', src: '/icons/linkedin.svg', alt: 'LinkedIn', color: '#0077b5', size: '55px' },
+  { href: '/resume.pdf', src: '/icons/resume.svg', alt: 'Resume', color: '#f39c12', size: '43px' },
+  { href: 'mailto:rachelswleung@gmail.com', src: '/icons/mail.svg', alt: 'Email', color: '#e74c3c', size: '44px' }
+];
+
 const SocialLinks = () => (
-  <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
-    <a href="https://github.com/rach-leung" target="_blank" rel="noopener noreferrer">
-      <img src="/icons/github.svg" alt="GitHub" style={{ width: '40px', height: '40px' }} />
-    </a>
-    <a href="https://www.linkedin.com/in/leung-rachel/" target="_blank" rel="noopener noreferrer">
-      <img src="/icons/linkedin.svg" alt="LinkedIn" style={{ width: '40px', height: '40px' }} />
-    </a>
-    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-      <img src="/icons/resume.svg" alt="Resume" style={{ width: '40px', height: '40px' }} />
-    </a>
-    <a href="mailto:rachelswleung@gmail.com">
-      <img src="/icons/mail.svg" alt="Email" style={{ width: '40px', height: '40px' }} />
-    </a>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '20px' }}>
+    {socialLinks.map(({ href, src, alt, color, size }) => (
+      <a
+        key={alt}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          transition: 'transform 0.3s ease',
+          display: 'inline-block'
+        }}
+      >
+        <div
+          style={{
+            width: size,
+            height: size,
+            maskImage: `url(${src})`,
+            WebkitMaskImage: `url(${src})`,
+            maskRepeat: 'no-repeat',
+            maskSize: 'contain',
+            WebkitMaskRepeat: 'no-repeat',
+            WebkitMaskSize: 'contain',
+            backgroundColor: 'white',
+            transition: 'background-color 0.3s ease, transform 0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = color;
+            e.currentTarget.style.transform = 'scale(1.2)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'white';
+            e.currentTarget.style.transform = 'scale(1)';
+          }}
+        />
+      </a>
+    ))}
   </div>
 );
 
