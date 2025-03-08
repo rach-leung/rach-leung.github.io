@@ -45,7 +45,7 @@ const About = () =>
                     borderRadius: '50%',
                     overflow: 'hidden',
                     border: '5px solid #000',
-                    backgroundImage: 'url(/IMG_5890.jpg)',
+                    backgroundImage: 'url(/photo-of-me.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     marginTop: '70px',
