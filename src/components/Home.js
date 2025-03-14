@@ -57,14 +57,14 @@ const TypingEffect = ({ words, typingSpeed = 150, deleteSpeed = 50, pause = 1000
 
 
 const socialLinks = [
-  { href: 'https://github.com/rach-leung', src: '/icons/github.svg', alt: 'GitHub', color: '#9f9f9f', size: '53px' },
-  { href: 'https://www.linkedin.com/in/leung-rachel/', src: '/icons/linkedin.svg', alt: 'LinkedIn', color: '#0077b5', size: '55px' },
-  { href: '/resume.pdf', src: '/icons/resume.svg', alt: 'Resume', color: '#f39c12', size: '43px' },
-  { href: 'mailto:rachelswleung@gmail.com', src: '/icons/mail.svg', alt: 'Email', color: '#e74c3c', size: '44px' }
+  { href: 'https://github.com/rach-leung', src: '/icons/github.svg', alt: 'GitHub', color: '#9f9f9f', size: '40px' },
+  { href: 'https://www.linkedin.com/in/leung-rachel/', src: '/icons/linkedin.svg', alt: 'LinkedIn', color: '#0077b5', size: '42px' },
+  { href: '/resume.pdf', src: '/icons/resume.svg', alt: 'Resume', color: '#f39c12', size: '33px' },
+  { href: 'mailto:rachelswleung@gmail.com', src: '/icons/mail.svg', alt: 'Email', color: '#e74c3c', size: '34px' }
 ];
 
 const SocialLinks = () => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '20px' }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '22px', marginTop: '20px' }}>
     {socialLinks.map(({ href, src, alt, color, size }) => (
       <a
         key={alt}
@@ -121,7 +121,7 @@ const Home = () => (
         <h3 style={{marginBottom: '0', fontSize: '3rem'}}>Hi! I'm</h3>
         <GradientHeading size='6rem' style={{ marginBottom: '0px !important' }}>Rachel Leung</GradientHeading>
         <TypingEffect words={['Student', 'Developer', 'Designer']} />
-        <p style={{ fontSize: '2rem' }}>Welcome to my space!</p>
+        <p style={{ fontSize: '1.5rem' }}>Welcome to my space!</p>
         <SocialLinks />
       </div>
       <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
